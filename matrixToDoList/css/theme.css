@@ -1,0 +1,30 @@
+.dark-mode {
+    background-color: #222;
+    color: white;
+}
+
+.dark-mode .quadrant {
+    border-color: white;
+}
+
+.dark-mode button {
+    background-color: #555;
+}
+
+/* Dark Mode Styles */
+.dark-mode {
+    background-color: #222;
+    color: white;
+}
+
+/* Change delete button text color in dark mode */
+.dark-mode .delete-task {
+    color: white;
+}
+
+/* Change dark mode toggle button text */
+.dark-mode #darkModeToggle {
+    background-color: white;
+    color: black;
+}
+

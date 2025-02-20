@@ -1,0 +1,360 @@
+/* Global Styles */
+body {
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+/* Header */
+h1 {
+    font-size: 32px;
+    margin-top: 20px;
+    font-weight: 700;
+    color: #222;
+}
+
+/* Task Bar */
+.task-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin: 20px auto;
+    width: 60%;
+    background: white;
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.task-bar input {
+    padding: 12px;
+    font-size: 16px;
+    width: 100%;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.task-bar input:focus {
+    border-color: #ff5a5f;
+    box-shadow: 0px 0px 5px rgba(255, 90, 95, 0.5);
+}
+
+/* Quadrants */
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 20px;
+    width: 80%;
+    margin: 30px auto;
+}
+
+.quadrant {
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Unique Colors for Each Quadrant */
+.urgent-important { background-color: #ff5a5f; color: white; }
+.not-urgent-important { background-color: #f39c12; color: white; }
+.urgent-not-important { background-color: #3498db; color: white; }
+.not-urgent-not-important { background-color: #2ecc71; color: white; }
+
+/* Quadrant Hover Effect */
+.quadrant:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Quadrant Headings */
+.quadrant h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: -5px;
+}
+
+/* Task List */
+.task-list {
+    list-style: none;
+    padding: 0;
+}
+
+.task-list li {
+    background: rgba(255, 255, 255, 0.749);
+    color: rgb(40, 20, 20);
+    padding: 10px;
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.task-list li:hover {
+    transform: scale(1.02);
+}
+
+/* Completed Tasks */
+.completed span {
+    text-decoration: line-through;
+    color: #888;
+}
+
+/* Checkbox */
+.task-checkbox {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+/* Delete Button */
+.delete-task {
+    font-size: 12px;
+    background: inherit;
+    border: none;
+    color: #ff5a5f;
+    font-size: 14px; /* Reduced size */
+    padding: 3px 6px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+}
+
+.delete-task:hover {
+    transform: scale(1.1); /* Slight hover effect */
+    color: darkred;
+}
+
+
+/* Dark Mode Styles */
+.dark-mode {
+    background-color: #222;
+    color: white;
+}
+
+/* Ensure h1 turns white in dark mode */
+.dark-mode h1 {
+    color: white;
+}
+
+.dark-mode .quadrant {
+    border-color: white;
+    box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.2);
+}
+
+.dark-mode .task-bar {
+    background: #333;
+    box-shadow: 2px 2px 15px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .task-bar input {
+    background: #444;
+    color: white;
+    border: 2px solid #666;
+}
+
+.dark-mode .task-list li {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.dark-mode .delete-task {
+    color: white;
+}
+
+.dark-mode #darkModeToggle {
+    background-color: white;
+    color: black;
+}
+
+/* Toggle Button */
+#darkModeToggle {
+    margin: 15px auto;
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+#darkModeToggle:hover {
+    background-color: white;
+    color: black;
+}
+
+/* Placeholder Message for Empty Quadrants */
+.empty-message {
+    text-align: center;
+    font-style: italic;
+    font-size: 12px; /* Slightly larger */
+    color: rgba(0, 0, 0, 0.6); /* Darker for better visibility */
+    margin-top: 15px;
+    padding: 8px;
+    border-end-start-radius: 20px ;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow */
+    transition: opacity 0.5s ease-in-out;
+    opacity: 1;
+}
+
+/* Make sure it fades out smoothly when tasks are added */
+.hidden {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Floating Menu */
+.floating-menu {
+    position: fixed;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 120px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Menu Items */
+.menu-item {
+    width: 90%;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+    background: rgba(240, 240, 240, 0.8);
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover & Active Effects */
+.menu-item:hover {
+    background: #ff5a5f;
+    color: white;
+    transform: scale(1.05);
+}
+
+.menu-item:active {
+    transform: scale(0.95);
+}
+
+/* Dark Mode Support */
+.dark-mode .floating-menu {
+    background: rgba(40, 40, 40, 0.9);
+    box-shadow: 0px 4px 12px rgba(255, 255, 255, 0.2);
+}
+
+.dark-mode .menu-item {
+    background: rgba(60, 60, 60, 0.8);
+    color: white;
+}
+
+.dark-mode .menu-item:hover {
+    background: #ff5a5f;
+}
+
+
+/* Fixed Square Size */
+.pomodoro-widget {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    width: 200px;
+    height: 200px; /* Ensures a perfect square */
+    background: white;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    cursor: grab;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Ensure size does not change while dragging */
+.pomodoro-widget:active {
+    cursor: grabbing;
+}
+
+/* Pomodoro Header */
+.pomodoro-header {
+    display: flex;
+    color: black;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    padding: 5px;
+    border-bottom: 2px solid #ddd;
+}
+
+#toggleTimer {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* Timer Display */
+#floatingTimer {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff5a5f;
+    display: block;
+    text-align: center;
+    margin: 10px 0;
+}
+
+/* Timer Length Selection */
+#timerSelect {
+    width: 100%;
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Timer Controls */
+.pomodoro-controls {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.pomodoro-controls button {
+    background: #ff5a5f;
+    color: white;
+    border: none;
+    padding: 5px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.pomodoro-controls button:hover {
+    background: darkred;
+}
+
+/* Hide Timer when Minimized */
+.hidden {
+    display: none;
+}
+
+
